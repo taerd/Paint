@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMain = new System.Windows.Forms.Panel();
             this.groupBoxTools = new System.Windows.Forms.GroupBox();
-            this.pictureBoxBrush = new System.Windows.Forms.PictureBox();
+            this.pictureBrush = new System.Windows.Forms.PictureBox();
             this.pictureEraser = new System.Windows.Forms.PictureBox();
             this.picturePen = new System.Windows.Forms.PictureBox();
             this.groupBoxColor = new System.Windows.Forms.GroupBox();
@@ -47,14 +47,17 @@
             this.pictureBoxLine = new System.Windows.Forms.PictureBox();
             this.pictureBoxRectangle = new System.Windows.Forms.PictureBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.pictureBoxEllipse = new System.Windows.Forms.PictureBox();
             this.groupBoxTools.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrush)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBrush)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEraser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePen)).BeginInit();
             this.groupBoxColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -74,7 +77,7 @@
             // 
             // groupBoxTools
             // 
-            this.groupBoxTools.Controls.Add(this.pictureBoxBrush);
+            this.groupBoxTools.Controls.Add(this.pictureBrush);
             this.groupBoxTools.Controls.Add(this.pictureEraser);
             this.groupBoxTools.Controls.Add(this.picturePen);
             this.groupBoxTools.Location = new System.Drawing.Point(13, 13);
@@ -84,16 +87,16 @@
             this.groupBoxTools.TabStop = false;
             this.groupBoxTools.Text = "Инструменты";
             // 
-            // pictureBoxBrush
+            // pictureBrush
             // 
-            this.pictureBoxBrush.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBrush.Image")));
-            this.pictureBoxBrush.Location = new System.Drawing.Point(108, 31);
-            this.pictureBoxBrush.Name = "pictureBoxBrush";
-            this.pictureBoxBrush.Size = new System.Drawing.Size(25, 23);
-            this.pictureBoxBrush.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxBrush.TabIndex = 2;
-            this.pictureBoxBrush.TabStop = false;
-            this.pictureBoxBrush.Click += new System.EventHandler(this.ChangeItem);
+            this.pictureBrush.Image = ((System.Drawing.Image)(resources.GetObject("pictureBrush.Image")));
+            this.pictureBrush.Location = new System.Drawing.Point(108, 31);
+            this.pictureBrush.Name = "pictureBrush";
+            this.pictureBrush.Size = new System.Drawing.Size(25, 23);
+            this.pictureBrush.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBrush.TabIndex = 2;
+            this.pictureBrush.TabStop = false;
+            this.pictureBrush.Click += new System.EventHandler(this.ChangeItem);
             // 
             // pictureEraser
             // 
@@ -220,6 +223,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBoxEllipse);
             this.groupBox1.Controls.Add(this.pictureBoxLine);
             this.groupBox1.Controls.Add(this.pictureBoxRectangle);
             this.groupBox1.Location = new System.Drawing.Point(310, 13);
@@ -261,6 +265,17 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // pictureBoxEllipse
+            // 
+            this.pictureBoxEllipse.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEllipse.Image")));
+            this.pictureBoxEllipse.Location = new System.Drawing.Point(66, 20);
+            this.pictureBoxEllipse.Name = "pictureBoxEllipse";
+            this.pictureBoxEllipse.Size = new System.Drawing.Size(24, 21);
+            this.pictureBoxEllipse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxEllipse.TabIndex = 2;
+            this.pictureBoxEllipse.TabStop = false;
+            this.pictureBoxEllipse.Click += new System.EventHandler(this.ChangeFigure);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -282,7 +297,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxTools.ResumeLayout(false);
             this.groupBoxTools.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBrush)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBrush)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEraser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePen)).EndInit();
             this.groupBoxColor.ResumeLayout(false);
@@ -290,6 +305,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,7 +316,7 @@
         private System.Windows.Forms.GroupBox groupBoxTools;
         private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.PictureBox picturePen;
-        private System.Windows.Forms.PictureBox pictureBoxBrush;
+        private System.Windows.Forms.PictureBox pictureBrush;
         private System.Windows.Forms.PictureBox pictureEraser;
         private System.Windows.Forms.Panel panelBlack;
         private System.Windows.Forms.Panel panelRed;
@@ -314,6 +330,8 @@
         private System.Windows.Forms.PictureBox pictureBoxLine;
         private System.Windows.Forms.PictureBox pictureBoxRectangle;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.PictureBox pictureBoxEllipse;
     }
 }
 
