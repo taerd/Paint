@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMain = new System.Windows.Forms.Panel();
             this.groupBoxTools = new System.Windows.Forms.GroupBox();
-            this.pictureBrush = new System.Windows.Forms.PictureBox();
             this.pictureEraser = new System.Windows.Forms.PictureBox();
             this.picturePen = new System.Windows.Forms.PictureBox();
             this.groupBoxColor = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelPurple = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
             this.panelGreen = new System.Windows.Forms.Panel();
@@ -44,20 +44,27 @@
             this.comboBoxPtt = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxEllipse = new System.Windows.Forms.PictureBox();
             this.pictureBoxLine = new System.Windows.Forms.PictureBox();
             this.pictureBoxRectangle = new System.Windows.Forms.PictureBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.pictureBoxEllipse = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panelCol2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelCol1 = new System.Windows.Forms.Panel();
+            this.buttonOpen = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBoxTools.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBrush)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEraser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePen)).BeginInit();
             this.groupBoxColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -66,37 +73,26 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMain.Location = new System.Drawing.Point(13, 97);
+            this.panelMain.Location = new System.Drawing.Point(13, 93);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1507, 598);
+            this.panelMain.Size = new System.Drawing.Size(890, 443);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             this.panelMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMain_MouseDown);
             this.panelMain.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMain_MouseMove);
             this.panelMain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelMain_MouseUp);
+            this.panelMain.Resize += new System.EventHandler(this.panelMain_Resize);
             // 
             // groupBoxTools
             // 
-            this.groupBoxTools.Controls.Add(this.pictureBrush);
             this.groupBoxTools.Controls.Add(this.pictureEraser);
             this.groupBoxTools.Controls.Add(this.picturePen);
-            this.groupBoxTools.Location = new System.Drawing.Point(13, 13);
+            this.groupBoxTools.Location = new System.Drawing.Point(12, 12);
             this.groupBoxTools.Name = "groupBoxTools";
-            this.groupBoxTools.Size = new System.Drawing.Size(150, 75);
+            this.groupBoxTools.Size = new System.Drawing.Size(114, 75);
             this.groupBoxTools.TabIndex = 1;
             this.groupBoxTools.TabStop = false;
             this.groupBoxTools.Text = "Инструменты";
-            // 
-            // pictureBrush
-            // 
-            this.pictureBrush.Image = ((System.Drawing.Image)(resources.GetObject("pictureBrush.Image")));
-            this.pictureBrush.Location = new System.Drawing.Point(108, 31);
-            this.pictureBrush.Name = "pictureBrush";
-            this.pictureBrush.Size = new System.Drawing.Size(25, 23);
-            this.pictureBrush.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBrush.TabIndex = 2;
-            this.pictureBrush.TabStop = false;
-            this.pictureBrush.Click += new System.EventHandler(this.ChangeItem);
             // 
             // pictureEraser
             // 
@@ -111,12 +107,13 @@
             // 
             // picturePen
             // 
+            this.picturePen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picturePen.Image = ((System.Drawing.Image)(resources.GetObject("picturePen.Image")));
             this.picturePen.InitialImage = null;
             this.picturePen.Location = new System.Drawing.Point(13, 31);
             this.picturePen.Margin = new System.Windows.Forms.Padding(0);
             this.picturePen.Name = "picturePen";
-            this.picturePen.Size = new System.Drawing.Size(25, 23);
+            this.picturePen.Size = new System.Drawing.Size(29, 27);
             this.picturePen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picturePen.TabIndex = 0;
             this.picturePen.TabStop = false;
@@ -125,18 +122,28 @@
             // 
             // groupBoxColor
             // 
+            this.groupBoxColor.Controls.Add(this.panel1);
             this.groupBoxColor.Controls.Add(this.panelPurple);
             this.groupBoxColor.Controls.Add(this.panelYellow);
             this.groupBoxColor.Controls.Add(this.panelGreen);
             this.groupBoxColor.Controls.Add(this.panelBlue);
             this.groupBoxColor.Controls.Add(this.panelRed);
             this.groupBoxColor.Controls.Add(this.panelBlack);
-            this.groupBoxColor.Location = new System.Drawing.Point(170, 13);
+            this.groupBoxColor.Location = new System.Drawing.Point(132, 12);
             this.groupBoxColor.Name = "groupBoxColor";
-            this.groupBoxColor.Size = new System.Drawing.Size(73, 75);
+            this.groupBoxColor.Size = new System.Drawing.Size(96, 75);
             this.groupBoxColor.TabIndex = 2;
             this.groupBoxColor.TabStop = false;
             this.groupBoxColor.Text = "Цвет";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(70, 32);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(15, 15);
+            this.panel1.TabIndex = 6;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelPurple
             // 
@@ -145,7 +152,7 @@
             this.panelPurple.Name = "panelPurple";
             this.panelPurple.Size = new System.Drawing.Size(15, 15);
             this.panelPurple.TabIndex = 5;
-            this.panelPurple.Click += new System.EventHandler(this.ChangeColor);
+            this.panelPurple.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelYellow
             // 
@@ -154,7 +161,7 @@
             this.panelYellow.Name = "panelYellow";
             this.panelYellow.Size = new System.Drawing.Size(15, 15);
             this.panelYellow.TabIndex = 4;
-            this.panelYellow.Click += new System.EventHandler(this.ChangeColor);
+            this.panelYellow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelGreen
             // 
@@ -163,7 +170,7 @@
             this.panelGreen.Name = "panelGreen";
             this.panelGreen.Size = new System.Drawing.Size(15, 15);
             this.panelGreen.TabIndex = 3;
-            this.panelGreen.Click += new System.EventHandler(this.ChangeColor);
+            this.panelGreen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelBlue
             // 
@@ -172,7 +179,7 @@
             this.panelBlue.Name = "panelBlue";
             this.panelBlue.Size = new System.Drawing.Size(15, 15);
             this.panelBlue.TabIndex = 2;
-            this.panelBlue.Click += new System.EventHandler(this.ChangeColor);
+            this.panelBlue.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelRed
             // 
@@ -181,7 +188,7 @@
             this.panelRed.Name = "panelRed";
             this.panelRed.Size = new System.Drawing.Size(15, 15);
             this.panelRed.TabIndex = 1;
-            this.panelRed.Click += new System.EventHandler(this.ChangeColor);
+            this.panelRed.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // panelBlack
             // 
@@ -190,7 +197,7 @@
             this.panelBlack.Name = "panelBlack";
             this.panelBlack.Size = new System.Drawing.Size(15, 15);
             this.panelBlack.TabIndex = 0;
-            this.panelBlack.Click += new System.EventHandler(this.ChangeColor);
+            this.panelBlack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ChangeColor);
             // 
             // comboBoxPtt
             // 
@@ -205,7 +212,7 @@
             "7",
             "8",
             "9"});
-            this.comboBoxPtt.Location = new System.Drawing.Point(249, 25);
+            this.comboBoxPtt.Location = new System.Drawing.Point(556, 12);
             this.comboBoxPtt.Name = "comboBoxPtt";
             this.comboBoxPtt.Size = new System.Drawing.Size(55, 24);
             this.comboBoxPtt.TabIndex = 3;
@@ -213,9 +220,9 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(249, 55);
+            this.buttonClear.Location = new System.Drawing.Point(495, 12);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(55, 25);
+            this.buttonClear.Size = new System.Drawing.Size(55, 23);
             this.buttonClear.TabIndex = 4;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -226,19 +233,31 @@
             this.groupBox1.Controls.Add(this.pictureBoxEllipse);
             this.groupBox1.Controls.Add(this.pictureBoxLine);
             this.groupBox1.Controls.Add(this.pictureBoxRectangle);
-            this.groupBox1.Location = new System.Drawing.Point(310, 13);
+            this.groupBox1.Location = new System.Drawing.Point(388, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(160, 75);
+            this.groupBox1.Size = new System.Drawing.Size(101, 75);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фигуры";
             // 
+            // pictureBoxEllipse
+            // 
+            this.pictureBoxEllipse.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEllipse.Image")));
+            this.pictureBoxEllipse.Location = new System.Drawing.Point(66, 20);
+            this.pictureBoxEllipse.Name = "pictureBoxEllipse";
+            this.pictureBoxEllipse.Size = new System.Drawing.Size(24, 21);
+            this.pictureBoxEllipse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxEllipse.TabIndex = 2;
+            this.pictureBoxEllipse.TabStop = false;
+            this.pictureBoxEllipse.Click += new System.EventHandler(this.ChangeFigure);
+            // 
             // pictureBoxLine
             // 
+            this.pictureBoxLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxLine.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLine.Image")));
             this.pictureBoxLine.Location = new System.Drawing.Point(36, 21);
             this.pictureBoxLine.Name = "pictureBoxLine";
-            this.pictureBoxLine.Size = new System.Drawing.Size(24, 20);
+            this.pictureBoxLine.Size = new System.Drawing.Size(28, 24);
             this.pictureBoxLine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxLine.TabIndex = 1;
             this.pictureBoxLine.TabStop = false;
@@ -257,31 +276,82 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(477, 13);
+            this.buttonSave.Location = new System.Drawing.Point(495, 41);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(55, 23);
             this.buttonSave.TabIndex = 5;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // pictureBoxEllipse
+            // groupBox2
             // 
-            this.pictureBoxEllipse.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxEllipse.Image")));
-            this.pictureBoxEllipse.Location = new System.Drawing.Point(66, 20);
-            this.pictureBoxEllipse.Name = "pictureBoxEllipse";
-            this.pictureBoxEllipse.Size = new System.Drawing.Size(24, 21);
-            this.pictureBoxEllipse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxEllipse.TabIndex = 2;
-            this.pictureBoxEllipse.TabStop = false;
-            this.pictureBoxEllipse.Click += new System.EventHandler(this.ChangeFigure);
+            this.groupBox2.Controls.Add(this.panelCol2);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.panelCol1);
+            this.groupBox2.Location = new System.Drawing.Point(234, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(148, 75);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Основные цвета";
+            // 
+            // panelCol2
+            // 
+            this.panelCol2.Location = new System.Drawing.Point(87, 24);
+            this.panelCol2.Name = "panelCol2";
+            this.panelCol2.Size = new System.Drawing.Size(30, 30);
+            this.panelCol2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(75, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Цвет 2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Цвет 1";
+            // 
+            // panelCol1
+            // 
+            this.panelCol1.BackColor = System.Drawing.Color.Black;
+            this.panelCol1.Location = new System.Drawing.Point(23, 24);
+            this.panelCol1.Name = "panelCol1";
+            this.panelCol1.Size = new System.Drawing.Size(30, 30);
+            this.panelCol1.TabIndex = 0;
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Location = new System.Drawing.Point(495, 67);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(55, 23);
+            this.buttonOpen.TabIndex = 0;
+            this.buttonOpen.Text = "Open";
+            this.buttonOpen.UseVisualStyleBackColor = false;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1532, 708);
+            this.ClientSize = new System.Drawing.Size(915, 548);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClear);
@@ -297,15 +367,16 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxTools.ResumeLayout(false);
             this.groupBoxTools.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBrush)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEraser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePen)).EndInit();
             this.groupBoxColor.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -316,7 +387,6 @@
         private System.Windows.Forms.GroupBox groupBoxTools;
         private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.PictureBox picturePen;
-        private System.Windows.Forms.PictureBox pictureBrush;
         private System.Windows.Forms.PictureBox pictureEraser;
         private System.Windows.Forms.Panel panelBlack;
         private System.Windows.Forms.Panel panelRed;
@@ -332,6 +402,14 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxEllipse;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panelCol2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelCol1;
+        private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
