@@ -44,6 +44,8 @@
             this.comboBoxPtt = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxArrow = new System.Windows.Forms.PictureBox();
+            this.pictureBoxStar = new System.Windows.Forms.PictureBox();
             this.pictureBoxEllipse = new System.Windows.Forms.PictureBox();
             this.pictureBoxLine = new System.Windows.Forms.PictureBox();
             this.pictureBoxRectangle = new System.Windows.Forms.PictureBox();
@@ -61,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturePen)).BeginInit();
             this.groupBoxColor.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).BeginInit();
@@ -230,6 +234,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBoxArrow);
+            this.groupBox1.Controls.Add(this.pictureBoxStar);
             this.groupBox1.Controls.Add(this.pictureBoxEllipse);
             this.groupBox1.Controls.Add(this.pictureBoxLine);
             this.groupBox1.Controls.Add(this.pictureBoxRectangle);
@@ -239,6 +245,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фигуры";
+            // 
+            // pictureBoxArrow
+            // 
+            this.pictureBoxArrow.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxArrow.Image")));
+            this.pictureBoxArrow.Location = new System.Drawing.Point(49, 48);
+            this.pictureBoxArrow.Name = "pictureBoxArrow";
+            this.pictureBoxArrow.Size = new System.Drawing.Size(22, 21);
+            this.pictureBoxArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxArrow.TabIndex = 4;
+            this.pictureBoxArrow.TabStop = false;
+            this.pictureBoxArrow.Click += new System.EventHandler(this.ChangeFigure);
+            // 
+            // pictureBoxStar
+            // 
+            this.pictureBoxStar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxStar.Image")));
+            this.pictureBoxStar.Location = new System.Drawing.Point(23, 48);
+            this.pictureBoxStar.Name = "pictureBoxStar";
+            this.pictureBoxStar.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxStar.TabIndex = 3;
+            this.pictureBoxStar.TabStop = false;
+            this.pictureBoxStar.Click += new System.EventHandler(this.ChangeFigure);
             // 
             // pictureBoxEllipse
             // 
@@ -372,6 +400,8 @@
             this.groupBoxColor.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEllipse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangle)).EndInit();
@@ -410,6 +440,8 @@
         private System.Windows.Forms.Panel panelCol1;
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox pictureBoxArrow;
+        private System.Windows.Forms.PictureBox pictureBoxStar;
     }
 }
 
