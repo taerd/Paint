@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Paint
 {
@@ -48,8 +49,6 @@ namespace Paint
             }
             else
             {
-                g = panelMain.CreateGraphics();
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 paint = true;
                 created = true;
                 if (PickedFigure != Figure.Ellipse && PickedFigure != Figure.Rectangle && PickedFigure != Figure.Star && PickedFigure != Figure.Arrow)
@@ -62,9 +61,9 @@ namespace Paint
         private void panelMain_MouseMove(object sender, MouseEventArgs e)
         {
             if (img == null) return;
-            var bgg = bg.Graphics;
             if (paint)
             {
+                var bgg = bg.Graphics;
                 currentPoint = new Point(e.X, e.Y);
                 if (PickedFigure == Figure.Line)
                 {
@@ -218,7 +217,6 @@ namespace Paint
                 bg = bgc.Allocate(panelMain.CreateGraphics(), new Rectangle(0, 0, PanelWidth, PanelHeight));
             }
         }
-
         private void buttonOpen_Click(object sender, EventArgs e)
         {
             var res = openFileDialog1.ShowDialog();
@@ -227,7 +225,53 @@ namespace Paint
             //openFileDialog1.RestoreDirectory = true;
             if (res == DialogResult.OK)
             {
-                //запустить панельку с выбором подгона изображения по панели или его обрезание
+                /*
+                bool action = false;
+                Form2 frm2 = new Form2(this);
+                frm2.Show();
+                this.Hide();
+                while (!action)
+                {
+                    //Thread.Sleep(1000);
+                    action = frm2.act;
+                }
+                switch (frm2.res)
+                {
+                    case 1:
+                        //запустить панельку с выбором подгона изображения по панели или его обрезание
+                        img2 = new Bitmap(Image.FromFile(openFileDialog1.FileName));
+
+                        gimg.DrawImage(img2, 0, 0);
+                        if (g != null)
+                        {
+                            g.DrawImage(img2, 0, 0);
+                        }
+                        else
+                        {
+                            g = panelMain.CreateGraphics();
+                            g.DrawImage(img2, 0, 0);
+                        }
+                        break;
+                    case 2:
+                        //с сужением изображения(не совсем хорошее)
+                        gimg.Dispose();
+                        img2 = new Bitmap(Image.FromFile(openFileDialog1.FileName));
+                        gimg = Graphics.FromImage(img2);
+                        gimg.DrawImage(img2, 0, 0);
+                        if (g != null)
+                        {
+                            g.DrawImage(img2,0,0);
+                        }
+                        else
+                        {
+                            g = panelMain.CreateGraphics();
+                            g.DrawImage(img2, 0, 0);
+                        }
+                        bg = bgc.Allocate(panelMain.CreateGraphics(), new Rectangle(0, 0, PanelWidth, PanelHeight));
+                        break;
+                    default:
+                        break;
+                }      */
                 img2 = new Bitmap(Image.FromFile(openFileDialog1.FileName));
 
                 gimg.DrawImage(img2, 0, 0);
@@ -242,7 +286,6 @@ namespace Paint
                 }
             }
         }
-
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
             if (img == null)
@@ -375,6 +418,7 @@ namespace Paint
                     break;
             }
         }
+
         private Point[] CreatePolPoints(int numb,Rectangle area)
         {
             Point[] pts = new Point[numb];
@@ -397,7 +441,7 @@ namespace Paint
         }
         private Point[] CreateArrPoints(Rectangle area)
         {
-                Point point1 = new Point(area.X, area.Y);
+                Point point1 = new Point(area.X, area.Y+area.Height/2);
                 Point point2 = new Point((int)(area.X + area.Width * 0.65), (int)(area.Y + area.Height * 0.35));
                 Point point3 = new Point((int)(area.X + area.Width * 0.6), (int)(area.Y + area.Height * 0.15));
                 Point point4 = new Point((int)(area.X + area.Width * 0.9), (int)(area.Y + area.Height * 0.5));
@@ -408,7 +452,9 @@ namespace Paint
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            g = panelMain.CreateGraphics();
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            pen1.EndCap = pen1.StartCap = System.Drawing.Drawing2D.LineCap.Round;
         }
     }
 }
